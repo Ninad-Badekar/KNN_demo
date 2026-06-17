@@ -1,0 +1,9 @@
+column,KS_statistic,KS_pvalue,pass_ks,role
+credit_score,0.0163,0.1403,True,qi
+age,0.0489,0.0,True,qi
+tenure,0.0221,0.0151,True,qi
+balance,0.0269,0.0014,True,qi
+products_number,0.017,0.1111,True,qi
+credit_card,0.0594,0.0,True,qi
+active_member,0.0076,0.9349,True,qi
+estimated_salary,0.0185,0.0653,True,qi

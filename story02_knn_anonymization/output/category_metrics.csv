@@ -1,0 +1,4 @@
+column,TVD,pass_tvd,role
+country,0.0136,True,
+gender,0.001,True,
+churn,0.0511,True,target

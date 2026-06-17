@@ -1,0 +1,14 @@
+parameter,what_it_controls,experiment_values,default
+k_anonymity,Minimum equivalence-class size; rows below this are suppressed and replaced,5,5
+k_neighbors,Number of nearest neighbours for KNN synthesis,"15 | 25",15
+cat_gen_method,How categorical values are picked from neighbours,"mode | weighted_mode | probability",weighted_mode
+num_gen_method,How numeric values are generated from neighbours,weighted_mean,interpolation
+target_gen_method,How churn target is generated from neighbours,"mode | weighted_mode | probability",probability
+scaler_method,Scaler for numeric features (distance + synthesis),"standard | minmax | robust",standard
+distance_mode,How row similarity is computed for neighbour search,"weighted_sum | gower",weighted_sum
+num_distance_metric,Numeric distance when distance_mode=weighted_sum,"euclidean | manhattan | minkowski",euclidean
+minkowski_p,Minkowski exponent when num_distance_metric=minkowski,3,3
+cat_distance_metric,Categorical distance when distance_mode=weighted_sum,"hamming | jaccard | overlap",hamming
+num_weight,Numeric block weight in weighted_sum distance,"1.0 | 2.0",1.0
+cat_weight,Categorical block weight in weighted_sum distance,"1.0 | 2.0",1.0
+distance_profile,Weight preset label (maps to num_weight / cat_weight),"balanced | num_heavy | cat_heavy",balanced

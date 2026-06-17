@@ -1,0 +1,15 @@
+{
+  "runtime_sec": 60.431,
+  "peak_memory_mb": 3393.8,
+  "n_suppressed": 5551,
+  "overall_pass": false,
+  "target_cols": [
+    "churn"
+  ],
+  "utility_baselines": {
+    "churn": 1.0
+  },
+  "utility_synthetics": {
+    "churn": 0.5567
+  }
+}
