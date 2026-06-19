@@ -1,0 +1,4 @@
+column,TVD,pass_tvd,real_category_count,synthetic_category_count,category_coverage,new_synthetic_category_count,missing_synthetic_category_count,max_category_proportion_diff
+country,0.2793,False,3,3,1.0,0,0,0.2793
+gender,0.0665,True,2,2,1.0,0,0,0.0665
+churn,0.0697,True,2,2,1.0,0,0,0.0697

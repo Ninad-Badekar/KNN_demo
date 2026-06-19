@@ -1,0 +1,11 @@
+feature,original_iv,synthetic_iv,retention_ratio,absolute_delta
+balance,7.688,8.8739,1.1543,1.1859
+products_number,1.1071,0.2501,0.2259,0.857
+age,0.9649,0.5544,0.5746,0.4105
+estimated_salary,11.0394,11.3772,1.0306,0.3379
+credit_score,0.4894,0.718,1.4671,0.2286
+country,0.1684,0.2779,1.6502,0.1095
+gender,0.0698,0.0352,0.5045,0.0346
+tenure,0.0087,0.0257,2.9495,0.017
+active_member,0.1532,0.1585,1.0342,0.0052
+credit_card,0.0003,0.0,0.0703,0.0003

@@ -1,0 +1,60 @@
+{
+  "runtime_sec": 139.493,
+  "peak_memory_mb": 923.36,
+  "n_suppressed": 9277,
+  "overall_pass": false,
+  "relationship_col": "churn",
+  "target_col": "churn",
+  "karabo_summary": {
+    "mean_category_coverage": 1.0,
+    "total_new_categories": 0,
+    "mean_psi": 0.0325,
+    "mean_num_corr_drift": 0.0215,
+    "mean_cat_pair_drift": 0.0823,
+    "mean_cat_num_drift": 0.1061,
+    "mean_iv_retention": 1.0661,
+    "target_rate_drift": 0.0697,
+    "auc_retention_ratio": 0.9523,
+    "synthetic_duplicate_rate": 0.0,
+    "replaced_exact_match_rate": 0.0,
+    "mean_corr_drift": 0.04097
+  },
+  "inferred_schema": {
+    "id_cols": [
+      "customer_id"
+    ],
+    "categorical_cols": [
+      "country",
+      "gender"
+    ],
+    "numerical_cols": [
+      "credit_score",
+      "age",
+      "tenure",
+      "balance",
+      "products_number",
+      "credit_card",
+      "active_member",
+      "estimated_salary"
+    ],
+    "kanon_qi_cols": [
+      "country",
+      "gender",
+      "age",
+      "tenure",
+      "products_number",
+      "credit_card",
+      "active_member"
+    ],
+    "generalization": {
+      "age": {
+        "type": "quantile_bins",
+        "q": 20
+      },
+      "tenure": {
+        "type": "bin_floor",
+        "step": 1
+      }
+    }
+  }
+}

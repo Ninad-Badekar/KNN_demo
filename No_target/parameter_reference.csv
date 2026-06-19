@@ -1,0 +1,19 @@
+parameter,what_it_controls,experiment_values,default,notes
+k_anonymity,Minimum equivalence-class size; rows below this are suppressed and replaced,"3 | 5 | 7 | ...",5,Used in batch grid and single-run config
+k_neighbors,Number of nearest neighbours for KNN synthesis,"3 | 5 | 10 | 15 | ...",15,Higher k = smoother synthesis
+cat_gen_method,How feature categorical QI values are picked from neighbours,"mode | weighted_mode | probability",weighted_mode,Excludes TARGET_COL; features only
+num_gen_method,How numeric QI values are generated from neighbours,"interpolation | weighted_mean",interpolation,Applied to all columns in NUMERICAL_COLS
+target_gen_method,How TARGET_COL is sampled from neighbours after feature synthesis,"mode | weighted_mode | probability",probability,Karabo-style; separate from cat_gen_method
+scaler_method,Scaler for numeric features (distance + synthesis),"standard | minmax | robust",standard,Gower grid rows use minmax only after filtering
+distance_mode,How row similarity is computed for neighbour search,"weighted_sum | gower",weighted_sum,Gower ignores cat/num metric and weight params for neighbours
+num_distance_metric,Numeric distance when distance_mode=weighted_sum,"euclidean | manhattan | minkowski",euclidean,Canonical euclidean for Gower rows in filtered grid
+minkowski_p,Minkowski exponent when num_distance_metric=minkowski,3,3,Only meaningful when metric=minkowski
+cat_distance_metric,Categorical distance when distance_mode=weighted_sum,"hamming | jaccard | overlap",hamming,Canonical hamming for Gower rows in filtered grid
+num_weight,Numeric block weight in weighted_sum distance,"0.5 | 1.0 | 2.0",1.0,Canonical 1.0 for Gower rows in filtered grid
+cat_weight,Categorical block weight in weighted_sum distance,"0.5 | 1.0 | 2.0",1.0,Canonical 1.0 for Gower rows in filtered grid
+distance_profile,Weight preset label (maps to num_weight / cat_weight),"balanced | num_heavy | cat_heavy",balanced,Descriptive label in experiment folder names
+row_synthesis_mode,How suppressed rows are synthesized from neighbours,donor | independent,donor,Neighbour-coherent vs per-column independent synthesis
+TARGET_COL,Label column excluded from KNN distance; synthesized from neighbours,churn,churn,Must exist in dataset; not in CATEGORICAL_COLS
+RELATIONSHIP_COL,Column used for relationship-drift checks,churn,churn,Defaults to TARGET_COL
+CATEGORICAL_COLS,Feature categorical QI (distance + synthesis + TVD),"country | gender","country, gender",Does not include TARGET_COL
+NUMERICAL_COLS,Columns treated as numeric QI (distance + synthesis + KS),"credit_score | age | tenure | ...",see notebook,All standard numeric features except ID

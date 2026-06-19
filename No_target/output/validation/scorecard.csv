@@ -1,0 +1,7 @@
+area,metric,value,pass
+Quality-Categorical,tvd_pass_rate>=0.85,1.0,True
+Quality-Numerical,ks_pass_rate>=0.85,1.0,True
+Quality-Numerical,mean_KS<0.10,0.0157,True
+Relationships,mean_corr_drift<0.05,0.0356,True
+Privacy,replaced_exact_match_rate<0.001,0.0,True
+Suppression,recovery_rate,1.0,True

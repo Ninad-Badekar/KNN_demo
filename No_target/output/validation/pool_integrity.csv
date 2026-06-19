@@ -1,0 +1,12 @@
+column,pool_rows_unchanged,pool_mismatches,pass
+country,True,0,True
+gender,True,0,True
+credit_score,True,0,True
+age,True,0,True
+tenure,True,0,True
+balance,True,0,True
+products_number,True,0,True
+credit_card,True,0,True
+active_member,True,0,True
+estimated_salary,True,0,True
+churn,True,0,True

@@ -1,0 +1,2 @@
+target_col,actual_rate,synthetic_rate,rate_drift,pass_rate_drift
+churn,0.2037,0.1534,0.0503,False

@@ -1,0 +1,63 @@
+{
+  "overall_pass": true,
+  "tvd_pass_rate": 1.0,
+  "ks_pass_rate": 1.0,
+  "mean_tvd": 0.017,
+  "mean_ks": 0.0157,
+  "mean_corr_drift": 0.03556,
+  "exact_match_rate": 0.0,
+  "target_col": "churn",
+  "relationship_col": "churn",
+  "karabo_summary": {
+    "mean_category_coverage": 1.0,
+    "total_new_categories": 0,
+    "mean_psi": 0.011,
+    "mean_num_corr_drift": 0.0084,
+    "mean_cat_pair_drift": 0.0006,
+    "mean_cat_num_drift": 0.0177,
+    "mean_iv_retention": 5.225,
+    "target_rate_drift": 0.0503,
+    "auc_retention_ratio": 0.9527,
+    "synthetic_duplicate_rate": 0.0,
+    "replaced_exact_match_rate": 0.0,
+    "mean_corr_drift": 0.03556
+  },
+  "config": {
+    "name": "karabo-style target test",
+    "relationship_col": "churn",
+    "target_col": "churn",
+    "row_synthesis_mode": "donor",
+    "categorical_cols": [
+      "country",
+      "gender"
+    ],
+    "target_gen_method": "probability",
+    "numerical_cols": [
+      "credit_score",
+      "age",
+      "tenure",
+      "balance",
+      "products_number",
+      "credit_card",
+      "active_member",
+      "estimated_salary"
+    ],
+    "k_anonymity": 3,
+    "k_neighbors": 15,
+    "num_weight": 1.0,
+    "cat_weight": 1.0,
+    "scaler_method": "minmax",
+    "cat_gen_method": "probability",
+    "num_gen_method": "interpolation",
+    "distance_mode": "gower",
+    "num_distance_metric": "euclidean",
+    "cat_distance_metric": "hamming",
+    "minkowski_p": 3,
+    "random_state": 42
+  },
+  "paths": {
+    "original": "/home/neosoft/KNN_demo/No_target/Bank Customer Churn Prediction.csv",
+    "anonymized": "/home/neosoft/KNN_demo/No_target/output/anonymized_dataset.csv",
+    "validation_output": "/home/neosoft/KNN_demo/No_target/output/validation"
+  }
+}
