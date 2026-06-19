@@ -1,0 +1,16 @@
+feature_1,feature_2,real_cramers_v,synthetic_cramers_v,abs_cramers_v_diff
+country,gender,0.0263,0.0883,0.062
+country,products_number,0.0496,0.085,0.0354
+country,credit_card,0.015,,
+country,active_member,0.023,0.0588,0.0357
+country,churn,0.1736,0.184,0.0104
+gender,products_number,0.0453,0.077,0.0318
+gender,credit_card,0.0055,,
+gender,active_member,0.0223,0.0143,0.008
+gender,churn,0.1063,0.0749,0.0314
+products_number,credit_card,0.0061,,
+products_number,active_member,0.0415,0.0407,0.0008
+products_number,churn,0.3878,0.0788,0.3089
+credit_card,active_member,0.0116,,
+credit_card,churn,0.0069,,
+active_member,churn,0.1559,0.0258,0.1301

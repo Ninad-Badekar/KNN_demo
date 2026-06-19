@@ -1,0 +1,12 @@
+column,pool_rows_unchanged,pool_mismatches,pass
+country,False,951,False
+gender,False,411,False
+credit_score,False,3748,False
+age,False,3105,False
+tenure,False,1997,False
+balance,False,2496,False
+products_number,False,185,False
+credit_card,False,303,False
+active_member,False,220,False
+estimated_salary,False,3837,False
+churn,False,656,False

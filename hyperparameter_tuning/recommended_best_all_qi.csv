@@ -1,0 +1,2 @@
+k_anonymity,k_neighbors,cat_gen_method,num_gen_method,scaler_method,distance_mode,num_distance_metric,minkowski_p,cat_distance_metric,num_weight,cat_weight,distance_profile,rationale
+3,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,"Highest composite_score in all_qi experiments. For faster runs use kn=3 weighted_mode+weighted_mean (same validation metrics in batch)."

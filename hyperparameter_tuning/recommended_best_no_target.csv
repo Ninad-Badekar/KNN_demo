@@ -1,0 +1,2 @@
+k_anonymity,k_neighbors,cat_gen_method,num_gen_method,target_gen_method,scaler_method,distance_mode,num_distance_metric,minkowski_p,cat_distance_metric,num_weight,cat_weight,distance_profile,rationale
+3,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,"Highest composite_score in No_target experiments. TVD pass 67% KS pass 100% mean_corr_drift 0.042 AUC retention 93.3%. Use target_gen_method=probability if you prefer Karabo default target sampling."

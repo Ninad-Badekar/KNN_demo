@@ -1,0 +1,3 @@
+pipeline,experiments,passing,best_composite_score,mean_tvd_pass_rate,mean_ks_pass_rate,mean_tvd,mean_ks,mean_exact_match_rate,mean_psi,mean_relationship_drift,mean_auc_retention,mean_target_rate_drift,mean_pair_drift
+No_target (Karabo target),10,0,0.6843,0.6667,1.0,0.0769,0.0147,0.0,0.0094,0.04166,0.9325,0.0809,
+all_qi_pipeline (all QI),10,0,0.717,0.5,1.0,0.0907,0.016,0.0,0.0054,,,,0.0393

@@ -1,0 +1,31 @@
+{
+  "name": "Production Run",
+  "row_synthesis_mode": "donor",
+  "categorical_cols": [
+    "country",
+    "gender",
+    "products_number",
+    "credit_card",
+    "active_member",
+    "churn"
+  ],
+  "numerical_cols": [
+    "credit_score",
+    "age",
+    "tenure",
+    "balance",
+    "estimated_salary"
+  ],
+  "k_anonymity": 5,
+  "k_neighbors": 15,
+  "num_weight": 1.0,
+  "cat_weight": 1.0,
+  "scaler_method": "robust",
+  "cat_gen_method": "weighted_mode",
+  "num_gen_method": "interpolation",
+  "distance_mode": "weighted_sum",
+  "num_distance_metric": "euclidean",
+  "cat_distance_metric": "hamming",
+  "minkowski_p": 3,
+  "random_state": 42
+}

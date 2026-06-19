@@ -1,0 +1,15 @@
+check,value,detail
+row_count_match,True,10000 vs 10000
+column_set_match,True,
+customer_id_unchanged,True,
+rows_changed_country,3180,31.80% of rows
+rows_changed_gender,1007,10.07% of rows
+rows_changed_credit_score,9088,90.88% of rows
+rows_changed_age,7740,77.40% of rows
+rows_changed_tenure,5230,52.30% of rows
+rows_changed_balance,6459,64.59% of rows
+rows_changed_products_number,792,7.92% of rows
+rows_changed_credit_card,1410,14.10% of rows
+rows_changed_active_member,684,6.84% of rows
+rows_changed_estimated_salary,9277,92.77% of rows
+rows_changed_churn,2237,22.37% of rows

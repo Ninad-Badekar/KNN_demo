@@ -3,6 +3,6 @@ Karabo-Categorical,mean_category_coverage>=1.0,1.0,True
 Karabo-Categorical,new_synthetic_categories==0,0.0,True
 Karabo-Numerical,mean_PSI<0.25,0.0325,True
 Karabo-Target,target_rate_drift<0.05,0.0697,False
-Karabo-Utility,auc_retention>=0.80,0.9451,True
+Karabo-Utility,auc_retention>=0.80,0.9499,True
 Karabo-Privacy,synthetic_duplicate_rate,0.0,True
-Karabo-Privacy,replaced_exact_match_rate<0.001,0.0,True
+Karabo-Privacy,replaced_exact_match_rate<0.001,0.019996,False

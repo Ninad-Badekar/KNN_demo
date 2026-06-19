@@ -1,0 +1,11 @@
+feature_1,feature_2,real_corr,synthetic_corr,abs_corr_diff
+credit_score,age,-0.004,-0.0348,0.0308
+credit_score,tenure,0.0008,0.0159,0.015
+credit_score,balance,0.0063,0.0089,0.0027
+credit_score,estimated_salary,-0.0014,0.0144,0.0158
+age,tenure,-0.01,-0.0305,0.0205
+age,balance,0.0283,0.0098,0.0185
+age,estimated_salary,-0.0072,-0.0239,0.0167
+tenure,balance,-0.0123,-0.031,0.0187
+tenure,estimated_salary,0.0078,-0.0019,0.0097
+balance,estimated_salary,0.0128,0.0131,0.0003

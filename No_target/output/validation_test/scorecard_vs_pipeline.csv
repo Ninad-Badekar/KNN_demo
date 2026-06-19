@@ -1,0 +1,7 @@
+area,metric,value_validation,pass_validation,value_pipeline,pass_pipeline,value_diff,pass_match
+Privacy,replaced_exact_match_rate<0.001,0.019996,False,0.0,True,0.019996,False
+Quality-Categorical,tvd_pass_rate>=0.85,0.6667,False,0.6667,False,0.0,True
+Quality-Numerical,ks_pass_rate>=0.85,0.875,True,0.875,True,0.0,True
+Quality-Numerical,mean_KS<0.10,0.0475,True,0.0475,True,0.0,True
+Relationships,mean_corr_drift<0.05,0.041,True,0.041,True,0.0,True
+Suppression,recovery_rate,1.0,True,1.0,True,0.0,True
