@@ -2,6 +2,15 @@
 
 Curated search grids for the bank-churn KNN anonymization pipelines, built from batch results in `No_target/` and `all_qi_pipeline/` plus story02 overlap/jaccard winners.
 
+**Tuning targets the production pipelines:**
+
+| CLI name | Folder | Notebook |
+|----------|--------|----------|
+| `no_target` | `No_target/` | `production_pipeline.ipynb` |
+| `all_qi` | `all_qi_pipeline/` | `all_qi_production_pipeline.ipynb` |
+
+The simplified `full/` and `full_all_qi/` notebooks are standalone — they are **not** used by this tuning runner.
+
 ## Recommended production configs (pre-tuning evidence)
 
 | Pipeline | Config | Why |
@@ -34,16 +43,19 @@ Extra columns `tier` and `notes` are documentation only; they are stripped when 
 cd C:\Users\admin\OneDrive\Documents\GitHub\KNN_demo
 
 # Deploy grid only (copies to pipeline folder, backs up old grid)
-.\No_target\.venv\Scripts\python.exe hyperparameter_tuning\run_tuning.py no_target --deploy-only
+python hyperparameter_tuning\run_tuning.py no_target --deploy-only
 
-# Run full tuning batch for No_target (~20 experiments, ~20 min)
-.\No_target\.venv\Scripts\python.exe hyperparameter_tuning\run_tuning.py no_target
+# Run full tuning batch for No_target (~20 experiments)
+python hyperparameter_tuning\run_tuning.py no_target
+
+# Run all_qi_pipeline tuning
+python hyperparameter_tuning\run_tuning.py all_qi
 
 # Run both pipelines
-.\No_target\.venv\Scripts\python.exe hyperparameter_tuning\run_tuning.py both
+python hyperparameter_tuning\run_tuning.py both
 
 # Summarize results after a run
-.\No_target\.venv\Scripts\python.exe hyperparameter_tuning\summarize_tuning.py
+python hyperparameter_tuning\summarize_tuning.py
 ```
 
 Results are copied to `hyperparameter_tuning/results/`. The pipeline's own `results/experiment_ranking.csv` is updated in place.

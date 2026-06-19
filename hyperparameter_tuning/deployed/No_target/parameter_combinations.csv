@@ -1,0 +1,22 @@
+k_anonymity,k_neighbors,cat_gen_method,num_gen_method,target_gen_method,scaler_method,distance_mode,num_distance_metric,minkowski_p,cat_distance_metric,num_weight,cat_weight,distance_profile,tier,notes
+3,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,champion,Rank-1 from No_target batch (composite 0.690); best TVD+KS+runtime balance at k=3
+3,15,weighted_mode,interpolation,probability,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,target_refine,Champion backbone; probability target sampling (Karabo default)
+3,15,weighted_mode,interpolation,weighted_mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,target_refine,Champion backbone; weighted target vote from neighbours
+3,15,weighted_mode,weighted_mean,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Rank-6 variant; weighted numeric mean with champion cat synthesis
+3,15,probability,interpolation,probability,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Stochastic cat+target; more diversity in categoricals
+3,10,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,Fewer neighbours — sharper local structure
+3,20,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,More neighbours — smoother synthesis
+5,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,Stronger k-anonymity; expect more suppression better privacy
+5,15,weighted_mode,interpolation,probability,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,k=5 with probability target; partial run showed higher AUC retention
+5,15,weighted_mode,interpolation,mode,robust,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,Robust scaler at k=5; tested in partial batch
+7,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,Highest k in tuning set; maximum equivalence-class size
+3,15,weighted_mode,interpolation,mode,minmax,gower,euclidean,3,hamming,1.0,1.0,balanced,distance_refine,Gower mixed-type distance; different neighbour sets
+5,15,weighted_mode,interpolation,mode,minmax,gower,euclidean,3,hamming,1.0,1.0,balanced,distance_refine,Gower at k=5
+3,15,weighted_mode,interpolation,mode,minmax,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,scaler_refine,MinMax scaler; story02 grids favoured minmax for TVD
+3,15,weighted_mode,interpolation,mode,robust,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,scaler_refine,Robust scaler on champion backbone
+5,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,overlap,1.0,1.0,balanced,distance_refine,Overlap categorical distance; strong TVD in story02 experiments
+5,15,weighted_mode,interpolation,mode,standard,weighted_sum,manhattan,3,hamming,1.0,1.0,balanced,distance_refine,Manhattan numeric distance
+5,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,2.0,0.5,num_heavy,Numeric-heavy distance weighting,
+5,15,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,0.5,2.0,cat_heavy,Categorical-heavy distance weighting,
+3,15,mode,weighted_mean,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Rank-2 combo; mode cat + weighted numeric mean
+3,3,weighted_mode,interpolation,mode,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,Rank-3 at kn=3; faster runtime same metrics on k=3 block

@@ -12,8 +12,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TUNING_DIR = Path(__file__).resolve().parent
-PYTHON = ROOT / "No_target" / ".venv" / "Scripts" / "python.exe"
-if not PYTHON.exists():
+
+for _venv in (ROOT / ".venv", ROOT / "No_target" / ".venv"):
+    _python = _venv / "Scripts" / "python.exe"
+    if _python.exists():
+        PYTHON = _python
+        break
+else:
     PYTHON = Path(sys.executable)
 
 PIPELINE_COLS_NO_TARGET = [
@@ -27,9 +32,24 @@ PIPELINE_COLS_ALL_QI = [
     "cat_distance_metric", "num_weight", "cat_weight", "distance_profile",
 ]
 
+# Production pipelines used for hyperparameter tuning (not the simplified full/ notebooks).
+PIPELINES = {
+    "no_target": {
+        "dir": ROOT / "No_target",
+        "notebook": "production_pipeline.ipynb",
+        "result_name": "No_target",
+    },
+    "all_qi": {
+        "dir": ROOT / "all_qi_pipeline",
+        "notebook": "all_qi_production_pipeline.ipynb",
+        "result_name": "all_qi_pipeline",
+    },
+}
+
 SKIP_SUBSTRINGS = (
-    "display_metrics_report(report_df_actual",
-    "report_df_actual = df\n",
+    "display_metrics_report(",
+    "plot_validation_charts(",
+    "report_df_actual = df",
 )
 
 
@@ -68,7 +88,33 @@ def deploy_grid(pipeline_dir: Path, pipeline: str, backup: bool = True) -> Path:
     return dest
 
 
-def run_notebook_batch(pipeline_dir: Path, batch_limit: int | None = None) -> Path:
+def _patch_config_cell(src: str, batch_limit: int | None) -> str:
+    lines = src.split("\n")
+    out = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("RUN_MODE"):
+            indent = line[: len(line) - len(line.lstrip())]
+            out.append(f'{indent}RUN_MODE = "batch"')
+        elif batch_limit is not None and stripped.startswith("BATCH_LIMIT"):
+            indent = line[: len(line) - len(line.lstrip())]
+            out.append(f"{indent}BATCH_LIMIT = {batch_limit}")
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
+def resolve_notebook(pipeline_dir: Path, notebook_name: str) -> Path:
+    nb_path = pipeline_dir / notebook_name
+    if nb_path.exists():
+        return nb_path
+    candidates = sorted(pipeline_dir.glob("*production_pipeline.ipynb"))
+    if len(candidates) == 1:
+        return candidates[0]
+    raise FileNotFoundError(f"No notebook found in {pipeline_dir} (expected {notebook_name})")
+
+
+def run_notebook_batch(pipeline_dir: Path, notebook_name: str, batch_limit: int | None = None) -> Path:
     os.chdir(pipeline_dir)
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
     if hasattr(sys.stdout, "reconfigure"):
@@ -77,7 +123,7 @@ def run_notebook_batch(pipeline_dir: Path, batch_limit: int | None = None) -> Pa
         except Exception:
             pass
 
-    nb_path = pipeline_dir / "production_pipeline.ipynb"
+    nb_path = resolve_notebook(pipeline_dir, notebook_name)
     nb = json.loads(nb_path.read_text(encoding="utf-8"))
     globs: dict = {"__name__": "__main__"}
 
@@ -87,14 +133,8 @@ def run_notebook_batch(pipeline_dir: Path, batch_limit: int | None = None) -> Pa
         src = "".join(cell["source"])
         if any(s in src for s in SKIP_SUBSTRINGS):
             continue
-        if "RUN_MODE = " in src and "RUN_MODE =" in src.split("\n")[0:5]:
-            src = src.replace('RUN_MODE = "single"', 'RUN_MODE = "batch"')
-            src = src.replace("RUN_MODE = 'single'", "RUN_MODE = 'batch'")
-        if batch_limit is not None and "BATCH_LIMIT = " in src:
-            for line in src.split("\n"):
-                if line.strip().startswith("BATCH_LIMIT"):
-                    src = src.replace(line, f"BATCH_LIMIT = {batch_limit}")
-                    break
+        if "RUN_MODE" in src or "BATCH_LIMIT" in src:
+            src = _patch_config_cell(src, batch_limit)
         exec(compile(src, f"{nb_path.name}:cell", "exec"), globs)
 
     ranking = pipeline_dir / "results" / "experiment_ranking.csv"
@@ -110,7 +150,7 @@ def main() -> None:
     parser.add_argument(
         "pipeline",
         choices=["no_target", "all_qi", "both"],
-        help="Which pipeline to tune",
+        help="Which pipeline to tune (No_target or all_qi_pipeline)",
     )
     parser.add_argument(
         "--deploy-only",
@@ -128,19 +168,23 @@ def main() -> None:
 
     targets = []
     if args.pipeline in ("no_target", "both"):
-        targets.append(("no_target", ROOT / "No_target"))
+        targets.append(("no_target", PIPELINES["no_target"]))
     if args.pipeline in ("all_qi", "both"):
-        targets.append(("all_qi", ROOT / "all_qi_pipeline"))
+        targets.append(("all_qi", PIPELINES["all_qi"]))
 
-    for name, pipeline_dir in targets:
+    for name, cfg in targets:
+        pipeline_dir = cfg["dir"]
+        if not pipeline_dir.exists():
+            raise FileNotFoundError(f"Pipeline folder not found: {pipeline_dir}")
+
         dest = deploy_grid(pipeline_dir, name, backup=not args.no_backup)
         n_rows = sum(1 for _ in dest.open(encoding="utf-8")) - 1
         print(f"Deployed {n_rows} configs -> {dest}")
         if args.deploy_only:
             continue
-        print(f"Running {name} tuning batch...")
+        print(f"Running {name} tuning batch ({pipeline_dir.name})...")
         t0 = time.perf_counter()
-        ranking = run_notebook_batch(pipeline_dir, batch_limit=args.limit)
+        ranking = run_notebook_batch(pipeline_dir, cfg["notebook"], batch_limit=args.limit)
         elapsed = time.perf_counter() - t0
         print(f"Done in {elapsed:.1f}s | ranking -> {ranking}")
 

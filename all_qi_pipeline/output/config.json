@@ -1,5 +1,5 @@
 {
-  "name": "Production Run",
+  "name": "k=3 kn=15 cat=mode num=interpolation scale=minmax gower/euclidean/gower/balanced",
   "row_synthesis_mode": "donor",
   "categorical_cols": [
     "country",
@@ -16,14 +16,14 @@
     "balance",
     "estimated_salary"
   ],
-  "k_anonymity": 5,
+  "k_anonymity": 3,
   "k_neighbors": 15,
   "num_weight": 1.0,
   "cat_weight": 1.0,
-  "scaler_method": "robust",
-  "cat_gen_method": "weighted_mode",
+  "scaler_method": "minmax",
+  "cat_gen_method": "mode",
   "num_gen_method": "interpolation",
-  "distance_mode": "weighted_sum",
+  "distance_mode": "gower",
   "num_distance_metric": "euclidean",
   "cat_distance_metric": "hamming",
   "minkowski_p": 3,

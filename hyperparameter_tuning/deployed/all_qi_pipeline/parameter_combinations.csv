@@ -1,0 +1,19 @@
+k_anonymity,k_neighbors,cat_gen_method,num_gen_method,scaler_method,distance_mode,num_distance_metric,minkowski_p,cat_distance_metric,num_weight,cat_weight,distance_profile,tier,notes
+3,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,champion,Best composite in all_qi batch (0.717); kn=15 + interpolation backbone
+3,15,weighted_mode,weighted_mean,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Rank-1 tied metrics with weighted_mean numerics
+3,3,weighted_mode,weighted_mean,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,Empirical rank-1 at kn=3; fastest in batch (~58s)
+3,15,probability,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Stochastic categorical synthesis on champion backbone
+3,15,mode,weighted_mean,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,synthesis_refine,Rank-2 all_qi config
+3,10,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,Fewer neighbours
+3,20,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,neighbors_refine,More neighbours
+5,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,Stronger k-anonymity (churn in QI set)
+7,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,privacy_tradeoff,Maximum k in tuning set
+3,15,weighted_mode,interpolation,minmax,gower,euclidean,3,hamming,1.0,1.0,balanced,distance_refine,Gower mixed distance
+5,15,weighted_mode,interpolation,minmax,gower,euclidean,3,hamming,1.0,1.0,balanced,distance_refine,Gower at k=5
+3,15,weighted_mode,interpolation,minmax,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,scaler_refine,MinMax scaler
+3,15,weighted_mode,interpolation,robust,weighted_sum,euclidean,3,hamming,1.0,1.0,balanced,scaler_refine,Robust scaler
+5,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,overlap,1.0,1.0,balanced,distance_refine,Overlap cat distance
+5,15,weighted_mode,interpolation,standard,weighted_sum,manhattan,3,hamming,1.0,1.0,balanced,distance_refine,Manhattan numeric distance
+5,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,2.0,0.5,num_heavy,Numeric-heavy weights,
+5,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,hamming,0.5,2.0,cat_heavy,Categorical-heavy weights,
+3,15,weighted_mode,interpolation,standard,weighted_sum,euclidean,3,jaccard,1.0,1.0,balanced,distance_refine,Jaccard categorical distance

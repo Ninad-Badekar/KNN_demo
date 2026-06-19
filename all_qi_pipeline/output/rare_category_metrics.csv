@@ -1,7 +1,7 @@
 column,rare_category_count,original_rare_mass,synthetic_rare_mass,retention_ratio
 country,0,0.0,0.0,
 gender,0,0.0,0.0,
-products_number,2,0.0326,0.0,0.0
+products_number,2,0.0326,0.0017,0.0521
 credit_card,0,0.0,0.0,
 active_member,0,0.0,0.0,
 churn,0,0.0,0.0,
