@@ -1,0 +1,78 @@
+{
+  "k_anonymity": 3,
+  "k_neighbors": 15,
+  "cat_gen_method": "probability",
+  "num_gen_method": "interpolation",
+  "target_gen_method": null,
+  "scaler_method": "robust",
+  "distance_mode": "weighted_sum",
+  "num_distance_metric": "euclidean",
+  "minkowski_p": 3,
+  "cat_distance_metric": "cosine",
+  "num_weight": 1.0,
+  "cat_weight": 1.0,
+  "distance_profile": "balanced",
+  "random_state": 42,
+  "row_synthesis_mode": "donor",
+  "target_gen_method_effective": "interpolation",
+  "data_file": "../Bank Customer Churn Prediction.csv",
+  "target_col": "estimated_salary",
+  "target_kind": "numeric",
+  "relationship_col": "estimated_salary",
+  "id_cols": [
+    "customer_id"
+  ],
+  "categorical_cols": [
+    "country",
+    "gender"
+  ],
+  "numerical_cols": [
+    "credit_score",
+    "age",
+    "tenure",
+    "balance",
+    "products_number",
+    "credit_card",
+    "active_member",
+    "churn"
+  ],
+  "kanon_qi_cols": [
+    "country",
+    "gender",
+    "age",
+    "tenure",
+    "products_number",
+    "credit_card",
+    "active_member",
+    "churn"
+  ],
+  "qi_cols": [
+    "country",
+    "gender",
+    "credit_score",
+    "age",
+    "tenure",
+    "balance",
+    "products_number",
+    "credit_card",
+    "active_member",
+    "churn",
+    "estimated_salary"
+  ],
+  "tvd_categorical_cols": [
+    "country",
+    "gender"
+  ],
+  "generalization": {
+    "age": {
+      "type": "quantile_bins",
+      "q": 20
+    },
+    "tenure": {
+      "type": "bin_floor",
+      "step": 1
+    }
+  },
+  "skipped_cols": {},
+  "passthrough_cols": []
+}

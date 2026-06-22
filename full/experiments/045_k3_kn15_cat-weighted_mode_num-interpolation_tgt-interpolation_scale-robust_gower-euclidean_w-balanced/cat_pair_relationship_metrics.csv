@@ -1,0 +1,2 @@
+feature_1,feature_2,real_cramers_v,synthetic_cramers_v,abs_cramers_v_diff
+country,gender,0.0263,0.0367,0.0104

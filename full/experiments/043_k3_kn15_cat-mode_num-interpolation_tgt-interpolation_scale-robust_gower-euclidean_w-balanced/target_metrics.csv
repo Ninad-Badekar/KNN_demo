@@ -1,0 +1,2 @@
+target_col,target_kind,actual_rate,synthetic_rate,rate_drift,pass_rate_drift,distribution_metric,target_ks,pass_target_ks
+estimated_salary,numeric,100090.2399,99268.3076,0.0143,True,normalized_mean_drift,0.0616,True

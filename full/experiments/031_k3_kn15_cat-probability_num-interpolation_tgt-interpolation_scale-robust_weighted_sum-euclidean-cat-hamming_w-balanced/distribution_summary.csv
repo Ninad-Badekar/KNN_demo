@@ -1,0 +1,12 @@
+column,type,actual_mean,synthetic_mean,actual_std,synthetic_std,mean_diff_pct,actual_category_count,synthetic_category_count,actual_top_category_pct,synthetic_top_category_pct
+credit_score,numerical,650.5288,650.0265,96.6533,92.3753,0.08,,,,
+age,numerical,38.9218,38.7917,10.4878,10.0439,0.33,,,,
+tenure,numerical,5.0128,5.0101,2.8922,2.7539,0.05,,,,
+balance,numerical,76485.8893,75748.4869,62397.4052,60674.0691,0.96,,,,
+products_number,numerical,1.5302,1.5057,0.5817,0.5352,1.6,,,,
+credit_card,numerical,0.7055,0.7399,0.4558,0.4387,4.88,,,,
+active_member,numerical,0.5151,0.5087,0.4998,0.4999,1.24,,,,
+churn,numerical,0.2037,0.1609,0.4028,0.3675,21.01,,,,
+estimated_salary,target_numeric,100090.2399,99098.1199,57510.4928,50097.8128,0.99,,,,
+country,categorical,,,,,,3.0,3.0,50.14,56.11
+gender,categorical,,,,,,2.0,2.0,54.57,56.16

@@ -1,0 +1,17 @@
+categorical_column,numerical_column,common_category_count,normalised_group_mean_diff
+country,credit_score,3,0.0397
+country,age,3,0.0849
+country,tenure,3,0.0452
+country,balance,3,0.1008
+country,products_number,3,0.0558
+country,credit_card,3,0.0838
+country,active_member,3,0.0906
+country,churn,3,0.1132
+gender,credit_score,2,0.0052
+gender,age,2,0.0462
+gender,tenure,2,0.0272
+gender,balance,2,0.0114
+gender,products_number,2,0.0442
+gender,credit_card,2,0.0352
+gender,active_member,2,0.0309
+gender,churn,2,0.1069

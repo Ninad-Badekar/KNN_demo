@@ -1,0 +1,3 @@
+training_data,task,r2,rmse,auc,accuracy,f1_score,auc_retention_ratio,f1_retention_ratio,r2_retention_ratio,rmse_retention_ratio
+real_train,regression,-0.0036,57559.5957,,,,,,,
+synthetic_train,regression,-0.0071,57658.7246,,,,,,1.9722,0.9983
